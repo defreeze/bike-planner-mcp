@@ -1,0 +1,11 @@
+name: bike-planner-mcp
+version: 1.0.0
+description: Modular trip planning MCP for Smithery demo
+maintainer: your-name <your-email@example.com>
+
+endpoints:
+  tools: /tools
+  manifest: /mcp.json
+  run: /run
+
+entrypoint: app:app 
