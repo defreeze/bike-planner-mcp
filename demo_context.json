@@ -1,0 +1,14 @@
+{
+  "state": {
+    "start_location": "Groningen",
+    "trip_length_days": 5,
+    "max_daily_distance_km": 70,
+    "preferences": ["nature", "historic towns", "no big cities"],
+    "current_day": 1
+  },
+  "tools": [],
+  "memory": [],
+  "ui": {
+    "focus": "day_overview"
+  }
+}
