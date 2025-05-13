@@ -11,6 +11,7 @@ import pprint
 import uvicorn
 from typing import Any
 import re
+from fastapi.responses import JSONResponse
 
 load_dotenv()  
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -193,6 +194,19 @@ async def run_planner(request: Request):
         results.append({"tool": tool, "input": args, "output": output})
     print("\n--- TOOL RESULTS ---\n", json.dumps(results, indent=2))
     return {"plan": steps, "results": results}
+
+@app.get("/tools")
+def list_tools():
+    return JSONResponse([schema["function"] for schema in tool_schemas])
+
+@app.get("/mcp.json")
+def mcp_manifest():
+    return {
+        "name": "bike-planner-mcp",
+        "description": "A modular trip planning MCP for Smithery.",
+        "tools": [schema["function"] for schema in tool_schemas],
+        "version": "1.0.0"
+    }
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
