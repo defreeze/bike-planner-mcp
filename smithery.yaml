@@ -8,4 +8,8 @@ endpoints:
   manifest: /mcp.json
   run: /run
 
-entrypoint: app:app 
+entrypoint: app:app
+
+startCommand:
+  docker: docker build -t bike-planner-mcp . && docker run -p 8000:8000 bike-planner-mcp
+  shell: uvicorn app:app --host 0.0.0.0 --port 8000 
