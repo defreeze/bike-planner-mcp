@@ -1,6 +1,6 @@
 name: bike-planner-mcp
 version: 1.0.0
-description: Modular trip planning MCP for Smithery demo
+description: PYGRUNN 2025 DEMO - Plan customized bicycle routes with integrated weather forecasts, accommodation suggestions, and local activity recommendations. Generate detailed multi-step travel plans dynamically based on user input. Streamline your cycling trip planning with modular, flexible tool integration.
 maintainer: your-name <your-email@example.com>
 
 startCommand:
