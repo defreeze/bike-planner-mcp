@@ -146,13 +146,13 @@ async def run_planner(request: Request):
     planning_messages = memory + [
         {"role": "user", "content": planning_prompt}
     ]
-    plan_completion = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-3.5-turbo-1106",
         messages=planning_messages,
         temperature=0.2,
         max_tokens=512
     )
-    plan_text = plan_completion.choices[0].message.content
+    plan_text = response.choices[0].message.content
     print("\n--- LLM PLAN ---\n", plan_text)
     try:
         plan = json.loads(plan_text)
