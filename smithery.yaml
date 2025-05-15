@@ -11,5 +11,15 @@ endpoints:
 entrypoint: app:app
 
 startCommand:
-  type: http
-  commandFunction: uvicorn app:app --host 0.0.0.0 --port 8000 
+  type: stdio
+  configSchema: {}
+  commandFunction: |-
+    (config) => ({
+      "command": "python",
+      "args": [
+        "main.py"
+      ],
+      "env": {
+        "OPENAI_API_KEY": process.env.OPENAI_API_KEY
+      }
+    }) 
